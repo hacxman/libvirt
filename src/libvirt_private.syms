@@ -246,6 +246,7 @@ virDomainDiskDefForeachPath;
 virDomainDiskDefFree;
 virDomainDiskDefNew;
 virDomainDiskDefSourceParse;
+virDomainDiskDetectZeroesTypeFromString;
 virDomainDiskDetectZeroesTypeToString;
 virDomainDiskDeviceTypeToString;
 virDomainDiskDiscardTypeToString;
