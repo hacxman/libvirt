@@ -883,6 +883,9 @@ mymain(void)
     DO_TEST("disk-drive-discard",
             QEMU_CAPS_DRIVE, QEMU_CAPS_DRIVE_DISCARD,
             QEMU_CAPS_DEVICE);
+    DO_TEST("disk-drive-detect-zeroes",
+            QEMU_CAPS_DRIVE, QEMU_CAPS_DRIVE_DETECT_ZEROES,
+            QEMU_CAPS_DEVICE);
     DO_TEST("disk-snapshot",
             QEMU_CAPS_DRIVE, QEMU_CAPS_DRIVE_CACHE_V2, QEMU_CAPS_DRIVE_FORMAT);
     DO_TEST("event_idx",

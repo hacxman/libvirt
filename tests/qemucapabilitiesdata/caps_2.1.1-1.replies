@@ -3466,3 +3466,868 @@
   ],
   "id": "libvirt-38"
 }
+
+{
+  "return": [
+    {
+      "parameters": [
+        {
+          "name": "initiator-name",
+          "help": "Initiator iqn name to use when connecting",
+          "type": "string"
+        },
+        {
+          "name": "header-digest",
+          "help": "HeaderDigest setting. {CRC32C|CRC32C-NONE|NONE-CRC32C|NONE}",
+          "type": "string"
+        },
+        {
+          "name": "password",
+          "help": "password for CHAP authentication to target",
+          "type": "string"
+        },
+        {
+          "name": "user",
+          "help": "username for CHAP authentication to target",
+          "type": "string"
+        }
+      ],
+      "option": "iscsi"
+    },
+    {
+      "parameters": [
+        {
+          "name": "seamless-migration",
+          "type": "boolean"
+        },
+        {
+          "name": "playback-compression",
+          "type": "boolean"
+        },
+        {
+          "name": "agent-mouse",
+          "type": "boolean"
+        },
+        {
+          "name": "streaming-video",
+          "type": "string"
+        },
+        {
+          "name": "zlib-glz-wan-compression",
+          "type": "string"
+        },
+        {
+          "name": "jpeg-wan-compression",
+          "type": "string"
+        },
+        {
+          "name": "image-compression",
+          "type": "string"
+        },
+        {
+          "name": "plaintext-channel",
+          "type": "string"
+        },
+        {
+          "name": "tls-channel",
+          "type": "string"
+        },
+        {
+          "name": "tls-ciphers",
+          "type": "string"
+        },
+        {
+          "name": "x509-dh-key-file",
+          "type": "string"
+        },
+        {
+          "name": "x509-cacert-file",
+          "type": "string"
+        },
+        {
+          "name": "x509-cert-file",
+          "type": "string"
+        },
+        {
+          "name": "x509-key-password",
+          "type": "string"
+        },
+        {
+          "name": "x509-key-file",
+          "type": "string"
+        },
+        {
+          "name": "x509-dir",
+          "type": "string"
+        },
+        {
+          "name": "sasl",
+          "type": "boolean"
+        },
+        {
+          "name": "disable-agent-file-xfer",
+          "type": "boolean"
+        },
+        {
+          "name": "disable-copy-paste",
+          "type": "boolean"
+        },
+        {
+          "name": "disable-ticketing",
+          "type": "boolean"
+        },
+        {
+          "name": "password",
+          "type": "string"
+        },
+        {
+          "name": "ipv6",
+          "type": "boolean"
+        },
+        {
+          "name": "ipv4",
+          "type": "boolean"
+        },
+        {
+          "name": "addr",
+          "type": "string"
+        },
+        {
+          "name": "tls-port",
+          "type": "number"
+        },
+        {
+          "name": "port",
+          "type": "number"
+        }
+      ],
+      "option": "spice"
+    },
+    {
+      "parameters": [
+      ],
+      "option": "acpi"
+    },
+    {
+      "parameters": [
+        {
+          "name": "sock_fd",
+          "type": "number"
+        },
+        {
+          "name": "socket",
+          "type": "string"
+        },
+        {
+          "name": "readonly",
+          "type": "boolean"
+        },
+        {
+          "name": "writeout",
+          "type": "string"
+        },
+        {
+          "name": "security_model",
+          "type": "string"
+        },
+        {
+          "name": "mount_tag",
+          "type": "string"
+        },
+        {
+          "name": "path",
+          "type": "string"
+        },
+        {
+          "name": "fsdriver",
+          "type": "string"
+        }
+      ],
+      "option": "virtfs"
+    },
+    {
+      "parameters": [
+        {
+          "name": "sock_fd",
+          "type": "number"
+        },
+        {
+          "name": "socket",
+          "type": "string"
+        },
+        {
+          "name": "readonly",
+          "type": "boolean"
+        },
+        {
+          "name": "writeout",
+          "type": "string"
+        },
+        {
+          "name": "security_model",
+          "type": "string"
+        },
+        {
+          "name": "path",
+          "type": "string"
+        },
+        {
+          "name": "fsdriver",
+          "type": "string"
+        }
+      ],
+      "option": "fsdev"
+    },
+    {
+      "parameters": [
+      ],
+      "option": "smbios"
+    },
+    {
+      "parameters": [
+      ],
+      "option": "numa"
+    },
+    {
+      "parameters": [
+        {
+          "name": "debug-threads",
+          "help": "When enabled, name the individual threads; defaults off.\nNOTE: The thread names are for debugging and not a\nstable API.",
+          "type": "boolean"
+        },
+        {
+          "name": "process",
+          "help": "Sets the name of the QEMU process, as shown in top etc",
+          "type": "string"
+        },
+        {
+          "name": "guest",
+          "help": "Sets the name of the guest.\nThis name will be displayed in the SDL window caption.\nThe name will also be used for the VNC server",
+          "type": "string"
+        }
+      ],
+      "option": "name"
+    },
+    {
+      "parameters": [
+        {
+          "name": "timestamp",
+          "type": "boolean"
+        }
+      ],
+      "option": "msg"
+    },
+    {
+      "parameters": [
+        {
+          "name": "mlock",
+          "type": "boolean"
+        }
+      ],
+      "option": "realtime"
+    },
+    {
+      "parameters": [
+      ],
+      "option": "tpmdev"
+    },
+    {
+      "parameters": [
+      ],
+      "option": "object"
+    },
+    {
+      "parameters": [
+        {
+          "name": "opaque",
+          "help": "free-form string used to describe fd",
+          "type": "string"
+        },
+        {
+          "name": "set",
+          "help": "ID of the fd set to add fd to",
+          "type": "number"
+        },
+        {
+          "name": "fd",
+          "help": "file descriptor of which a duplicate is added to fd set",
+          "type": "number"
+        }
+      ],
+      "option": "add-fd"
+    },
+    {
+      "parameters": [
+        {
+          "name": "enable",
+          "type": "boolean"
+        }
+      ],
+      "option": "sandbox"
+    },
+    {
+      "parameters": [
+        {
+          "name": "strict",
+          "type": "boolean"
+        },
+        {
+          "name": "reboot-timeout",
+          "type": "string"
+        },
+        {
+          "name": "splash-time",
+          "type": "string"
+        },
+        {
+          "name": "splash",
+          "type": "string"
+        },
+        {
+          "name": "menu",
+          "type": "boolean"
+        },
+        {
+          "name": "once",
+          "type": "string"
+        },
+        {
+          "name": "order",
+          "type": "string"
+        }
+      ],
+      "option": "boot-opts"
+    },
+    {
+      "parameters": [
+        {
+          "name": "maxcpus",
+          "type": "number"
+        },
+        {
+          "name": "threads",
+          "type": "number"
+        },
+        {
+          "name": "cores",
+          "type": "number"
+        },
+        {
+          "name": "sockets",
+          "type": "number"
+        },
+        {
+          "name": "cpus",
+          "type": "number"
+        }
+      ],
+      "option": "smp-opts"
+    },
+    {
+      "parameters": [
+        {
+          "name": "maxmem",
+          "type": "size"
+        },
+        {
+          "name": "slots",
+          "type": "number"
+        },
+        {
+          "name": "size",
+          "type": "size"
+        }
+      ],
+      "option": "memory"
+    },
+    {
+      "parameters": [
+        {
+          "name": "max-ram-below-4g",
+          "help": "maximum ram below the 4G boundary (32bit boundary)",
+          "type": "size"
+        },
+        {
+          "name": "kvm-type",
+          "help": "Specifies the KVM virtualization mode (HV, PR)",
+          "type": "string"
+        },
+        {
+          "name": "firmware",
+          "help": "firmware image",
+          "type": "string"
+        },
+        {
+          "name": "usb",
+          "help": "Set on/off to enable/disable usb",
+          "type": "boolean"
+        },
+        {
+          "name": "mem-merge",
+          "help": "enable/disable memory merge support",
+          "type": "boolean"
+        },
+        {
+          "name": "dump-guest-core",
+          "help": "Include guest memory in  a core dump",
+          "type": "boolean"
+        },
+        {
+          "name": "dt_compatible",
+          "help": "Overrides the \"compatible\" property of the dt root node",
+          "type": "string"
+        },
+        {
+          "name": "phandle_start",
+          "help": "The first phandle ID we may generate dynamically",
+          "type": "number"
+        },
+        {
+          "name": "dumpdtb",
+          "help": "Dump current dtb to a file and quit",
+          "type": "string"
+        },
+        {
+          "name": "dtb",
+          "help": "Linux kernel device tree file",
+          "type": "string"
+        },
+        {
+          "name": "append",
+          "help": "Linux kernel command line",
+          "type": "string"
+        },
+        {
+          "name": "initrd",
+          "help": "Linux initial ramdisk file",
+          "type": "string"
+        },
+        {
+          "name": "kernel",
+          "help": "Linux kernel image file",
+          "type": "string"
+        },
+        {
+          "name": "kvm_shadow_mem",
+          "help": "KVM shadow MMU size",
+          "type": "size"
+        },
+        {
+          "name": "kernel_irqchip",
+          "help": "use KVM in-kernel irqchip",
+          "type": "boolean"
+        },
+        {
+          "name": "accel",
+          "help": "accelerator list",
+          "type": "string"
+        },
+        {
+          "name": "type",
+          "help": "emulated machine",
+          "type": "string"
+        }
+      ],
+      "option": "machine"
+    },
+    {
+      "parameters": [
+        {
+          "name": "romfile",
+          "type": "string"
+        },
+        {
+          "name": "bootindex",
+          "type": "number"
+        }
+      ],
+      "option": "option-rom"
+    },
+    {
+      "parameters": [
+        {
+          "name": "file",
+          "type": "string"
+        },
+        {
+          "name": "events",
+          "type": "string"
+        }
+      ],
+      "option": "trace"
+    },
+    {
+      "parameters": [
+        {
+          "name": "pretty",
+          "type": "boolean"
+        },
+        {
+          "name": "default",
+          "type": "boolean"
+        },
+        {
+          "name": "chardev",
+          "type": "string"
+        },
+        {
+          "name": "mode",
+          "type": "string"
+        }
+      ],
+      "option": "mon"
+    },
+    {
+      "parameters": [
+        {
+          "name": "value",
+          "type": "string"
+        },
+        {
+          "name": "property",
+          "type": "string"
+        },
+        {
+          "name": "driver",
+          "type": "string"
+        }
+      ],
+      "option": "global"
+    },
+    {
+      "parameters": [
+        {
+          "name": "driftfix",
+          "type": "string"
+        },
+        {
+          "name": "clock",
+          "type": "string"
+        },
+        {
+          "name": "base",
+          "type": "string"
+        }
+      ],
+      "option": "rtc"
+    },
+    {
+      "parameters": [
+      ],
+      "option": "net"
+    },
+    {
+      "parameters": [
+      ],
+      "option": "netdev"
+    },
+    {
+      "parameters": [
+      ],
+      "option": "device"
+    },
+    {
+      "parameters": [
+        {
+          "name": "chardev",
+          "type": "string"
+        },
+        {
+          "name": "size",
+          "type": "size"
+        },
+        {
+          "name": "debug",
+          "type": "number"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "signal",
+          "type": "boolean"
+        },
+        {
+          "name": "mux",
+          "type": "boolean"
+        },
+        {
+          "name": "rows",
+          "type": "number"
+        },
+        {
+          "name": "cols",
+          "type": "number"
+        },
+        {
+          "name": "height",
+          "type": "number"
+        },
+        {
+          "name": "width",
+          "type": "number"
+        },
+        {
+          "name": "telnet",
+          "type": "boolean"
+        },
+        {
+          "name": "delay",
+          "type": "boolean"
+        },
+        {
+          "name": "server",
+          "type": "boolean"
+        },
+        {
+          "name": "wait",
+          "type": "boolean"
+        },
+        {
+          "name": "ipv6",
+          "type": "boolean"
+        },
+        {
+          "name": "ipv4",
+          "type": "boolean"
+        },
+        {
+          "name": "to",
+          "type": "number"
+        },
+        {
+          "name": "localport",
+          "type": "string"
+        },
+        {
+          "name": "localaddr",
+          "type": "string"
+        },
+        {
+          "name": "port",
+          "type": "string"
+        },
+        {
+          "name": "host",
+          "type": "string"
+        },
+        {
+          "name": "path",
+          "type": "string"
+        },
+        {
+          "name": "backend",
+          "type": "string"
+        }
+      ],
+      "option": "chardev"
+    },
+    {
+      "parameters": [
+        {
+          "name": "copy-on-read",
+          "help": "copy read data from backing file into image file",
+          "type": "boolean"
+        },
+        {
+          "name": "werror",
+          "help": "write error action",
+          "type": "string"
+        },
+        {
+          "name": "rerror",
+          "help": "read error action",
+          "type": "string"
+        },
+        {
+          "name": "read-only",
+          "help": "open drive file as read-only",
+          "type": "boolean"
+        },
+        {
+          "name": "file",
+          "help": "file name",
+          "type": "string"
+        },
+        {
+          "name": "serial",
+          "help": "disk serial number",
+          "type": "string"
+        },
+        {
+          "name": "addr",
+          "help": "pci address (virtio only)",
+          "type": "string"
+        },
+        {
+          "name": "boot",
+          "help": "(deprecated, ignored)",
+          "type": "boolean"
+        },
+        {
+          "name": "trans",
+          "help": "chs translation (auto, lba, none)",
+          "type": "string"
+        },
+        {
+          "name": "secs",
+          "help": "number of sectors (ide disk geometry)",
+          "type": "number"
+        },
+        {
+          "name": "heads",
+          "help": "number of heads (ide disk geometry)",
+          "type": "number"
+        },
+        {
+          "name": "cyls",
+          "help": "number of cylinders (ide disk geometry)",
+          "type": "number"
+        },
+        {
+          "name": "if",
+          "help": "interface (ide, scsi, sd, mtd, floppy, pflash, virtio)",
+          "type": "string"
+        },
+        {
+          "name": "media",
+          "help": "media type (disk, cdrom)",
+          "type": "string"
+        },
+        {
+          "name": "index",
+          "help": "index number",
+          "type": "number"
+        },
+        {
+          "name": "unit",
+          "help": "unit number (i.e. lun for scsi)",
+          "type": "number"
+        },
+        {
+          "name": "bus",
+          "help": "bus number",
+          "type": "number"
+        },
+        {
+          "name": "detect-zeroes",
+          "help": "try to optimize zero writes (off, on, unmap)",
+          "type": "string"
+        },
+        {
+          "name": "throttling.iops-size",
+          "help": "when limiting by iops max size of an I/O in bytes",
+          "type": "number"
+        },
+        {
+          "name": "throttling.bps-write-max",
+          "help": "total bytes write burst",
+          "type": "number"
+        },
+        {
+          "name": "throttling.bps-read-max",
+          "help": "total bytes read burst",
+          "type": "number"
+        },
+        {
+          "name": "throttling.bps-total-max",
+          "help": "total bytes burst",
+          "type": "number"
+        },
+        {
+          "name": "throttling.iops-write-max",
+          "help": "I/O operations write burst",
+          "type": "number"
+        },
+        {
+          "name": "throttling.iops-read-max",
+          "help": "I/O operations read burst",
+          "type": "number"
+        },
+        {
+          "name": "throttling.iops-total-max",
+          "help": "I/O operations burst",
+          "type": "number"
+        },
+        {
+          "name": "throttling.bps-write",
+          "help": "limit write bytes per second",
+          "type": "number"
+        },
+        {
+          "name": "throttling.bps-read",
+          "help": "limit read bytes per second",
+          "type": "number"
+        },
+        {
+          "name": "throttling.bps-total",
+          "help": "limit total bytes per second",
+          "type": "number"
+        },
+        {
+          "name": "throttling.iops-write",
+          "help": "limit write operations per second",
+          "type": "number"
+        },
+        {
+          "name": "throttling.iops-read",
+          "help": "limit read operations per second",
+          "type": "number"
+        },
+        {
+          "name": "throttling.iops-total",
+          "help": "limit total I/O operations per second",
+          "type": "number"
+        },
+        {
+          "name": "werror",
+          "help": "write error action",
+          "type": "string"
+        },
+        {
+          "name": "format",
+          "help": "disk format (raw, qcow2, ...)",
+          "type": "string"
+        },
+        {
+          "name": "aio",
+          "help": "host AIO implementation (threads, native)",
+          "type": "string"
+        },
+        {
+          "name": "cache.no-flush",
+          "help": "ignore any flush requests for the device",
+          "type": "boolean"
+        },
+        {
+          "name": "cache.direct",
+          "help": "enables use of O_DIRECT (bypass the host page cache)",
+          "type": "boolean"
+        },
+        {
+          "name": "cache.writeback",
+          "help": "enables writeback mode for any caches",
+          "type": "boolean"
+        },
+        {
+          "name": "discard",
+          "help": "discard operation (ignore/off, unmap/on)",
+          "type": "string"
+        },
+        {
+          "name": "snapshot",
+          "help": "enable/disable snapshot mode",
+          "type": "boolean"
+        },
+        {
+          "name": "detect-zeroes",
+          "help": "try to optimize zero writes (off, on, unmap)",
+          "type": "string"
+        }
+      ],
+      "option": "drive"
+    }
+  ],
+  "id": "libvirt-39"
+}
