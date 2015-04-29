@@ -279,6 +279,8 @@ VIR_ENUM_IMPL(virQEMUCaps, QEMU_CAPS_LAST,
               "qxl.vgamem_mb",
               "qxl-vga.vgamem_mb",
               "pc-dimm",
+
+              "detect-zeroes", /* 185 */
     );
 
 
@@ -1041,7 +1043,6 @@ virQEMUCapsComputeCmdFlags(const char *help,
 {
     const char *p;
     const char *fsdev, *netdev;
-
     if (strstr(help, "-no-kqemu"))
         virQEMUCapsSet(qemuCaps, QEMU_CAPS_KQEMU);
     if (strstr(help, "-enable-kqemu"))
@@ -1085,6 +1086,8 @@ virQEMUCapsComputeCmdFlags(const char *help,
             virQEMUCapsSet(qemuCaps, QEMU_CAPS_DRIVE_COPY_ON_READ);
         if (strstr(help, "bps="))
             virQEMUCapsSet(qemuCaps, QEMU_CAPS_DRIVE_IOTUNE);
+        if (strstr(help, "detect-zeroes="))
+            virQEMUCapsSet(qemuCaps, QEMU_CAPS_DRIVE_DETECT_ZEROES);
     }
     if ((p = strstr(help, "-vga")) && !strstr(help, "-std-vga")) {
         const char *nl = strstr(p, "\n");
@@ -2509,6 +2512,7 @@ struct virQEMUCapsCommandLineProps {
 static struct virQEMUCapsCommandLineProps virQEMUCapsCommandLine[] = {
     { "machine", "mem-merge", QEMU_CAPS_MEM_MERGE },
     { "drive", "discard", QEMU_CAPS_DRIVE_DISCARD },
+    { "drive", "detect-zeroes", QEMU_CAPS_DRIVE_DETECT_ZEROES },
     { "realtime", "mlock", QEMU_CAPS_MLOCK },
     { "boot-opts", "strict", QEMU_CAPS_BOOT_STRICT },
     { "boot-opts", "reboot-timeout", QEMU_CAPS_REBOOT_TIMEOUT },

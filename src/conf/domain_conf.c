@@ -761,6 +761,11 @@ VIR_ENUM_IMPL(virDomainTPMModel, VIR_DOMAIN_TPM_MODEL_LAST,
 VIR_ENUM_IMPL(virDomainTPMBackend, VIR_DOMAIN_TPM_TYPE_LAST,
               "passthrough")
 
+VIR_ENUM_IMPL(virDomainDiskDetectZeroes, VIR_DOMAIN_DISK_DETECT_ZEROES_LAST,
+              "off",
+              "on",
+              "unmap")
+
 VIR_ENUM_IMPL(virDomainDiskDiscard, VIR_DOMAIN_DISK_DISCARD_LAST,
               "default",
               "unmap",
@@ -6079,6 +6084,7 @@ virDomainDiskDefParseXML(virDomainXMLOptionPtr xmlopt,
     char *mirrorFormat = NULL;
     char *mirrorType = NULL;
     char *domain_name = NULL;
+    char *detect_zeroes = NULL;
     int expected_secret_usage = -1;
     int auth_secret_usage = -1;
     int ret = 0;
@@ -6215,6 +6221,7 @@ virDomainDiskDefParseXML(virDomainXMLOptionPtr xmlopt,
                 event_idx = virXMLPropString(cur, "event_idx");
                 copy_on_read = virXMLPropString(cur, "copy_on_read");
                 discard = virXMLPropString(cur, "discard");
+                detect_zeroes = virXMLPropString(cur, "detect_zeroes");
                 driverIOThread = virXMLPropString(cur, "iothread");
             } else if (!def->mirror &&
                        xmlStrEqual(cur->name, BAD_CAST "mirror") &&
@@ -6802,6 +6809,14 @@ virDomainDiskDefParseXML(virDomainXMLOptionPtr xmlopt,
         def->copy_on_read = cor;
     }
 
+    if (detect_zeroes) {
+        if ((def->detect_zeroes = virDomainDiskDetectZeroesTypeFromString(detect_zeroes)) <= 0) {
+            virReportError(VIR_ERR_CONFIG_UNSUPPORTED,
+                           _("unknown disk detect-zeroes mode '%s'"), detect_zeroes);
+            goto error;
+        }
+    }
+
     if (discard) {
         if ((def->discard = virDomainDiskDiscardTypeFromString(discard)) <= 0) {
             virReportError(VIR_ERR_CONFIG_UNSUPPORTED,
@@ -6936,6 +6951,7 @@ virDomainDiskDefParseXML(virDomainXMLOptionPtr xmlopt,
     VIR_FREE(mirrorType);
     VIR_FREE(mirrorFormat);
     VIR_FREE(domain_name);
+    VIR_FREE(detect_zeroes);
 
     ctxt->node = save_ctxt;
     return def;
@@ -17865,6 +17881,7 @@ virDomainDiskDefFormat(virBufferPtr buf,
     const char *copy_on_read = virTristateSwitchTypeToString(def->copy_on_read);
     const char *sgio = virDomainDeviceSGIOTypeToString(def->sgio);
     const char *discard = virDomainDiskDiscardTypeToString(def->discard);
+    const char *detect_zeroes = virDomainDiskDetectZeroesTypeToString(def->detect_zeroes);
 
     if (!type || !def->src->type) {
         virReportError(VIR_ERR_INTERNAL_ERROR,
@@ -17942,6 +17959,8 @@ virDomainDiskDefFormat(virBufferPtr buf,
             virBufferAsprintf(buf, " copy_on_read='%s'", copy_on_read);
         if (def->discard)
             virBufferAsprintf(buf, " discard='%s'", discard);
+        if (def->detect_zeroes)
+            virBufferAsprintf(buf, " detect-zeroes='%s'", detect_zeroes);
         if (def->iothread)
             virBufferAsprintf(buf, " iothread='%u'", def->iothread);
         virBufferAddLit(buf, "/>\n");

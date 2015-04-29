@@ -3801,6 +3801,17 @@ qemuBuildDriveStr(virConnectPtr conn,
         }
     }
 
+    if (disk->detect_zeroes) {
+        if (virQEMUCapsGet(qemuCaps, QEMU_CAPS_DRIVE_DETECT_ZEROES)) {
+            virBufferAsprintf(&opt, ",detect-zeroes=%s",
+                              virDomainDiskDetectZeroesTypeToString(disk->detect_zeroes));
+        } else {
+            virReportError(VIR_ERR_CONFIG_UNSUPPORTED, "%s",
+                           _("detect-zeroes is not supported by this QEMU binary"));
+            goto error;
+        }
+    }
+
     if (virQEMUCapsGet(qemuCaps, QEMU_CAPS_MONITOR_JSON)) {
         const char *wpolicy = NULL, *rpolicy = NULL;
 
